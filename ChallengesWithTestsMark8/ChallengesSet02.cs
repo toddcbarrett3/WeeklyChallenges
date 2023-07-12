@@ -9,22 +9,22 @@ namespace ChallengesWithTestsMark8
     {
         public bool CharacterIsALetter(char c)
         {
-            return Char.IsLetter(c) ? true : false;
+            return Char.IsLetter(c);
         }
 
         public bool CountOfElementsIsEven(string[] vals)
         {
-            return vals.Length%2 == 0 ? true : false;
+            return vals.Length%2 == 0;
         }
 
         public bool IsNumberEven(int number)
         {
-            return number%2 == 0 ? true : false;
+            return number % 2 == 0;
         }
 
         public bool IsNumberOdd(int num)
         {
-            return num % 2 != 0 ? true : false;
+            return num % 2 != 0;
         }
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
@@ -48,90 +48,97 @@ namespace ChallengesWithTestsMark8
 
         public int Sum(int[] numbers)
         {
-            var answer = 0;
+            return numbers?.Sum() ?? 0; //numbers is allowed to be null "numbers?" and if null will default to 0 "?? 0;"
 
-            if (numbers != null && numbers.Any())
-            {
-                foreach (var item in numbers)
-                {
-                    answer = answer + item;
+            //var answer = 0;
 
-                }
-                return answer;
-            }
-            else 
-            {
-                return 0;
-            }
+            //if (numbers != null && numbers.Any())
+            //{
+            //    foreach (var item in numbers)
+            //    {
+            //        answer += item;
+
+            //    }
+            //    return answer;
+            //}
+            //else 
+            //{
+            //    return 0;
+            //}
         }
-
-        public int SumEvens(int[] numbers)
+                public int SumEvens(int[] numbers)
         {
-            var answer = 0;
+            return numbers?.Where(x => x%2==0).Sum() ?? 0;
 
-            if (numbers != null && numbers.Any())
-            {
-                foreach (var item in numbers)
-                {
-                    if (item%2 == 0)
-                    {
-                        answer = answer + item;
-                    }
-                }
-                return answer;
-            }
-            else
-            {
-                return 0;
-            }
+            //var answer = 0;
+
+            //if (numbers != null && numbers.Any())
+            //{
+            //    foreach (var item in numbers)
+            //    {
+            //        if (item%2 == 0)
+            //        {
+            //            answer += item;
+            //        }
+            //    }
+            //    return answer;
+            //}
+            //else
+            //{
+            //    return 0;
+            //}
         }
 
         public bool IsSumOdd(List<int> numbers)
         {
-            var answer = 0;
+            return numbers?.Any() ?? false ? numbers.Sum() % 2 != 0 : false;
 
-            if (numbers != null && numbers.Any())
-            {
-                foreach (var item in numbers)
-                {
-                    answer = answer + item;
+            //var answer = 0;
 
-                }
-                if (answer%2 == 0)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            //if (numbers != null && numbers.Any())
+            //{
+            //    foreach (var item in numbers)
+            //    {
+            //        answer += item;
+
+            //    }
+            //    if (answer%2 == 0)
+            //    {
+            //        return false;
+            //    }
+            //    else
+            //    {
+            //        return true;
+            //    }
+            //}
+            //else
+            //{
+            //    return false;
+            //}
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
         {
-            long answer = 0;
+            return number < 0 ? 0 : number / 2;
+
+            //long answer = 0;
             
-            if (number%2 != 0)
-            {
-                for (var i = number-2; i > 0; i-=2)
-                {
-                    answer++;
-                }
-                return answer;
-            }
-            else
-            {
-                for (var i = number-1; i > 0; i -= 2)
-                {
-                    answer++;
-                }
-                return answer;
-            }
+            //if (number%2 != 0)
+            //{
+            //    for (var i = number-2; i > 0; i-=2)
+            //    {
+            //        answer++;
+            //    }
+            //    return answer;
+            //}
+            //else
+            //{
+            //    for (var i = number-1; i > 0; i -= 2)
+            //    {
+            //        answer++;
+            //    }
+            //    return answer;
+            //}
             
         }
     }

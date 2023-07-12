@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Immutable;
+using System.Linq;
 
 namespace ChallengesWithTestsMark8
 {
@@ -6,47 +8,69 @@ namespace ChallengesWithTestsMark8
     {
         public int AddEvenSubtractOdd(int[] numbers)
         {
-            throw new NotImplementedException();
+            return (numbers.Where(x =>  x % 2 == 0).Sum()) - (numbers.Where(x => x % 2 != 0).Sum());
         }
 
         public int GetLengthOfShortestString(string str1, string str2, string str3, string str4)
         {
-            throw new NotImplementedException();
+            string[] strLength = { str1, str2, str3, str4 };
+            return strLength.OrderBy(x => x.Length).First().Length;
         }
 
         public int GetSmallestNumber(int number1, int number2, int number3, int number4)
         {
-            throw new NotImplementedException();
+            int[] num = { number1, number2, number3, number4 };
+            return num.OrderBy(x => x).First();
         }
 
         public void ChangeBusinessNameTo_TrueCoders(Business biz)
         {
-            throw new NotImplementedException();
+           biz.Name = "TrueCoders";
         }
 
         public bool CouldFormTriangle(int sideLength1, int sideLength2, int sideLength3)
         {
-            throw new NotImplementedException();
+            int[] triangle = { sideLength1, sideLength2, sideLength3 };
+            Array.Sort(triangle);
+            return triangle[0] + triangle[1] > triangle[2];
+            
         }
 
         public bool IsStringANumber(string input)
         {
-            throw new NotImplementedException();
+            return double.TryParse(input, out var result);
         }
 
         public bool MajorityOfElementsInArrayAreNull(object[] objs)
         {
-            throw new NotImplementedException();
+            var total = objs.Count();
+            var nTotal = objs.Where(x => x == null).Count();
+            return nTotal > total/2;
         }
 
         public double AverageEvens(int[] numbers)
         {
-            throw new NotImplementedException();
+            if (numbers != null && numbers.Any())
+            {
+                if (numbers.Where(x => x % 2 == 0).Any())
+                { 
+                    return numbers.Where(x => x % 2 == 0).Average();
+                }
+                else return 0;
+            }
+            else { return 0; }
         }
 
         public int Factorial(int number)
         {
-            throw new NotImplementedException();
+            
+            if (number < 0) throw new ArgumentOutOfRangeException();
+            int sum = 1;
+            for (int i = number; i > 0; i--) 
+            {
+                sum *= i;      
+            }
+            return sum;
         }
     }
 }

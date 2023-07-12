@@ -8,13 +8,14 @@ namespace ChallengesWithTestsMark8
     {
         public bool ArrayContainsAFalse(bool[] vals)
         {
+            //return vals.Where(x => vals.Equals(x));
             bool answer = false;
             if (vals.Length == 0)
             {
                 return false;
             }
             foreach (var val in vals)
-            { 
+            {
                 if (!val)
                 {
                     answer = true;
@@ -25,6 +26,7 @@ namespace ChallengesWithTestsMark8
 
         public bool IsSumOfOddsOdd(IEnumerable<int> numbers)
         {
+            //return numbers.Where(x => x % 2 != 0).Sum().Equals(x => x % 2 != 0);
             bool answer;
             int sum = 0;
             if (numbers != null && numbers.Count() != 0)
@@ -99,7 +101,7 @@ namespace ChallengesWithTestsMark8
         {
             int[] oddInts = new int[50];
             int j = 0;
-            for (int i = 1;  i < 100; i+=2)
+            for (int i = 1; i < 100; i += 2)
             {
                 oddInts[j] += i;
                 j++;
@@ -109,6 +111,7 @@ namespace ChallengesWithTestsMark8
 
         public string[] ChangeAllElementsToUppercase(string[] words)
         {
+            //return words.Select(x => x.ToUpper()).ToArray();
             string[] newString = new string[words.Length];
             for (int i = 0; i < words.Length; i++)
             {
